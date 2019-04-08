@@ -1,0 +1,55 @@
+Algoritmo Autos_importados
+	dimension total_autos[1000]
+	escribir "ingrese el numero total de vehiculos"
+	leer n_vehiculos
+	dimension marca[n_vehiculos]
+	dimension origen[n_vehiculos]
+	dimension costo[n_vehiculos]
+	dimension impuestos[n_vehiculos]
+	Para i<-1 Hasta n_vehiculos Con Paso 1 Hacer
+		escribir "vehiculo #",i
+		escribir "Ingrese la marca del vehiculo"
+		leer marca[i]
+		escribir "Ingrese el origen del vehiculo"
+		leer origen[i]
+		escribir "Ingrese el costo del vehiculo"
+		leer costo[i]
+	Fin Para
+	Para i<-1 Hasta n_vehiculos Con Paso 1 Hacer
+		si origen[i]="argentina" entonces
+			impuestos[i]<-costo[i]*0.20
+			costo[i]<-costo[i]+impuestos[i]
+		FinSi
+		si origen[i]="colombia" entonces
+			impuestos[i]<-costo[i]*0.25
+			costo[i]<-costo[i]+impuestos[i]
+		FinSi
+		si origen[i]="chile" entonces
+			impuestos[i]<-costo[i]*0.30
+			costo[i]<-costo[i]+impuestos[i]
+		sino 
+			impuestos[i]<-costo[i]*0.40
+			costo[i]<-costo[i]+impuestos[i]
+		FinSi
+		costo_final<-costo_final+costo[i]
+	Fin Para
+	
+	para i<-1 hasta n_vehiculos con paso 1 Hacer
+		t_impuestos<-t_impuestos+impuestos[i]
+		si origen[i]="argentina" entonces
+			arg=arg+1
+		FinSi
+		si origen[i]="colombia" entonces
+			colo=colo+1
+		FinSi
+		si origen[i]="chile"  entonces
+			chile=chile+1
+		FinSi
+	FinPara
+	escribir "El numero total de vehiculos importados es: ",n_vehiculos
+	escribir "El total de impuestos es: ",t_impuestos
+	escribir "El precio total de vehiculos es: ",costo_final
+	escribir "Los vehiculos de argentina son: ",arg
+	escribir "Los vehiculos de chile son: ",chile
+	escribir "Los vehiculos de colombia son: ",colo
+FinAlgoritmo
